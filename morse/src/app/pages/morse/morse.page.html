@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Código Morse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">Texto</ion-label>
+    <ion-input type="text" [(ngModel)]="texto"></ion-input>
+    <ion-button color="primary" slot="end" (click)="codificar(texto)">Cod</ion-button>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Morse</ion-label>
+    <ion-textarea
+      disabled
+      readonly
+      value="{{ codigoMorse }}">
+    </ion-textarea>
+    <ion-button color="danger" slot="end" (click)="limpar()">Clean</ion-button>
+  </ion-item>
+
+</ion-content>
