@@ -21,7 +21,7 @@ export class MorsePage implements OnInit {
                          'S': '...', 'T': '-', 'U': '..-', 'Ú': '..-', 'Ü': '..-',
                          'V': '...-', 'W': '.--', 'X': '-..-',
                          'Y': '-.--', 'Z': '--..', 
-                         ' ': ' ', ',': ' ', ';': ' ', ':': ' ',
+                         " ": "  ", ",": "  ", ";": "  ", ':': "  ",
                          '1': '.----', '2': '..---', '3': '...--',
                          '4': '....-', '5': '.....', '6': '-....',
                          '7': '--...', '8': '---..', '9': '----.', '0': '-----'}
@@ -55,7 +55,7 @@ export class MorsePage implements OnInit {
     let codigo = ''
     console.log("A codar", aCodificar)
     for (let index = 0; index < aCodificar.length; index++) {
-      codigo += this.tabelaMorse[aCodificar[index]];
+      codigo += this.tabelaMorse[aCodificar[index]] + " ";
     }
     this.codigoMorse = codigo;
     console.log("result: ", this.codigoMorse)
