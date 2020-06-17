@@ -9,21 +9,47 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="texto">
+      <ion-label>Texto</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="morse">
+      <ion-label>Código Morse</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-  <ion-item>
-    <ion-label position="floating">Texto</ion-label>
+  <ion-item *ngIf="opcaoSelecionada == 'texto'">
+    <ion-label position="stacked">Texto</ion-label>
     <ion-input type="text" [(ngModel)]="texto"></ion-input>
     <ion-button color="primary" slot="end" (click)="codificar(texto)">Cod</ion-button>
   </ion-item>
   
-  <ion-item>
+  <ion-item *ngIf="opcaoSelecionada == 'texto'">
     <ion-label position="stacked">Morse</ion-label>
     <ion-textarea
       disabled
       readonly
       value="{{ codigoMorse }}">
     </ion-textarea>
-    <ion-button color="danger" slot="end" (click)="limpar()">Clean</ion-button>
+    <ion-button color="danger" slot="end" (click)="limparCodigo()">Clean</ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="opcaoSelecionada == 'morse'">
+    <ion-label position="stacked">Código Morse</ion-label>
+    <ion-input type="text" [(ngModel)]="codigo"></ion-input>
+    <ion-button color="primary" slot="end" (click)="decodificar(codigo)">DCod</ion-button>
+  </ion-item>
+  
+  <ion-item *ngIf="opcaoSelecionada == 'morse'">
+    <ion-label position="stacked">Texto</ion-label>
+    <ion-textarea
+      disabled
+      readonly
+      value="{{ codigoTraduzido }}">
+    </ion-textarea>
+    <ion-button color="danger" slot="end" (click)="limparTexto()">Clean</ion-button>
   </ion-item>
 
 </ion-content>
+
+
